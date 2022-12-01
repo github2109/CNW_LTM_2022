@@ -40,5 +40,29 @@ public class NewsDAO {
 		}
 		return result;
 	}
-
+	public ArrayList<News> getAllNews()
+	{
+		ArrayList<News> result = new ArrayList<News>();
+		try {			
+			PreparedStatement stmt = DBContext.getConnect().prepareStatement("SELECT * FROM news");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				result.add(new News(rs.getInt(1), 
+									rs.getInt(2), 
+									rs.getString(3), 
+									rs.getString(4), 
+									rs.getString(5), 
+									rs.getBytes(6),
+									rs.getBytes(7), 
+									rs.getString(8), 
+									rs.getString(9), 
+									rs.getBoolean(10), 
+									rs.getInt(11), 
+									rs.getDate(12)));
+			}
+		} catch (Exception e) {
+			
+		}
+		return result;
+	}
 }

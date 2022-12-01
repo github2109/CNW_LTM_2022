@@ -11,11 +11,11 @@ ArrayList<Category> listCategories = new ArrayList<Category>(
 ArrayList<Category> listCategoriesRandom = new ArrayList<Category>();
 Random rand = new Random();
 int tmp;
-/* for (int i = 0; i < 3; i++) {
+for (int i = 0; i < 3; i++) {
 	tmp = rand.nextInt(listCategories.size());
 	listCategoriesRandom.add(listCategories.get(tmp));
 	listCategories.remove(tmp);
-} */
+}
 %>
 <div class="trending-area fix pt-25 gray-bg">
 	<div class="container">
@@ -27,7 +27,7 @@ int tmp;
 					<div class="slider-active">
 						<%
 						ArrayList<News> listNews = (ArrayList<News>) request
-								.getAttribute("listNewsMostRecentByCategoryId=" + listCategories.get(1).getCategoryId());
+								.getAttribute("listNewsMostRecentByCategoryId=" + listCategoriesRandom.get(0).getCategoryId());
 
 						for (int i = 0; i < listNews.size(); i++) {
 						%>
@@ -35,12 +35,12 @@ int tmp;
 						<div class="single-slider">
 							<div class="trending-top mb-30">
 								<div class="trend-top-img">
-									<img
-										src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(listNews.get(0).getNewsCover()))%>
+									<img class="img-single-slider-TrendingArea"
+										src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(listNews.get(i).getNewsCover()))%>
 										alt="">
 									<div class="trend-top-cap">
-										<span class="bgr" data-animation="fadeInUp" data-delay=".2s"
-											data-duration="1000ms"><%=listCategories.get(0).getCategoryName()%></span>
+										<span class="bgr" data-animation="fadeInUp" data-delay=".1s"
+											data-duration="1000ms"><%=listCategoriesRandom.get(0).getCategoryName()%></span>
 										<h2>
 											<a href="latest_news.html" data-animation="fadeInUp"
 												data-delay=".4s" data-duration="1000ms"><%=listNews.get(i).getNewsTitle()%></a>
@@ -101,4 +101,5 @@ int tmp;
 		</div>
 	</div>
 </div>
+
 <!-- Trending Area End -->

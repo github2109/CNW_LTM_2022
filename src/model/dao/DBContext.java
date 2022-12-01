@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 public class DBContext {
 	public static Connection getConnect(){
 		Connection connection = null;
-		String url = "jdbc:mysql://localhost:3306/ltm";
+		String url = "jdbc:mysql://localhost:3306/ltm2022";
 		String user = "root";
 		String pass = "";
 		try {

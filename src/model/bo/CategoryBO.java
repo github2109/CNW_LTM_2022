@@ -12,5 +12,8 @@ public class CategoryBO {
 	public ArrayList<Category> getAllCategories() throws SQLException {
 		return categoryDAO.getAllCategories();
 	}
-
+	public Category getCategoryById(int id)
+	{
+		return categoryDAO.getCategoryById(id);
+	}
 }

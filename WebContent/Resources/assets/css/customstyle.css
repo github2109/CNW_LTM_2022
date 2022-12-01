@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.img-right-single-caption {
+	width: 104px;
+	height: 124px;
+	object-fit: cover;
+}
+.img-single-slider-TrendingArea{
+	width: 770px;
+	height: 645px;
+	object-fit: fill;
+}

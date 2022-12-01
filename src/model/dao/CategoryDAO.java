@@ -18,5 +18,18 @@ public class CategoryDAO {
 		}
 		return result;
 	}
-
+	public Category getCategoryById(int id)
+	{
+		try {
+			PreparedStatement stmt = DBContext.getConnect().prepareStatement("SELECT * FROM category WHERE CategoryId = ? ");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				return new Category(rs.getInt(1), rs.getString(2));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
 }

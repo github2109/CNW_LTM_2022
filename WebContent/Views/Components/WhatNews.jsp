@@ -28,12 +28,12 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 										for (int i = 0; i < listCategories.size(); i++) {
 										%>
 										<a
-											class="<%=i == 0 ? "nav-item\nnav-link\nactive" : "nav-item nav-link"%>"
-											id=<%="#nav-" + listCategories.get(i).getCategoryName()%>
+											class="<%=i == 0 ? "nav-item nav-link active" : "nav-item nav-link"%>"
+											id=<%="nav-" + listCategories.get(i).getCategoryName() + "-tab"%>
 											data-toggle="tab"
 											href=<%="#nav-" + listCategories.get(i).getCategoryName()%>
 											role="tab"
-											aria-controls=<%="#nav-" + listCategories.get(i).getCategoryName()%>
+											aria-controls=<%="nav-" + listCategories.get(i).getCategoryName()%>
 											aria-selected=<%=i == 0 ? "true" : "false"%>><%=listCategories.get(i).getCategoryName()%></a>
 										<%
 										}
@@ -53,11 +53,14 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 								for (int i = 0; i < listCategories.size(); i++) {
 									ArrayList<News> listNews = (ArrayList<News>) request
 									.getAttribute("listNewsMostRecentByCategoryId=" + listCategories.get(i).getCategoryId());
-									if(listNews.size() == 0) continue;
+									if (listNews.size() == 0)
+										continue;
 								%>
 								<!-- card one -->
-								<div class="tab-pane fade show active" id="nav-home"
-									role="tabpanel" aria-labelledby="nav-home-tab">
+								<div class="tab-pane fade show <%=i == 0 ? "active" : ""%>"
+									id=<%="nav-" + listCategories.get(i).getCategoryName()%>
+									role="tabpanel"
+									aria-labelledby=<%="nav-" + listCategories.get(i).getCategoryName() + "-tab"%>>
 									<div class="row">
 
 										<!-- Left Details Caption -->
@@ -76,7 +79,7 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 													<span>by <%=listNews.get(0).getNewsWriter()%> - Jun
 														19, 2020
 													</span>
-													<p><%= listNews.get(0).getNewsOverviewContent()%></p>
+													<p><%=listNews.get(0).getNewsOverviewContent()%></p>
 												</div>
 											</div>
 										</div>
@@ -91,12 +94,15 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 												<div class="col-xl-12 col-lg-6 col-md-6 col-sm-10">
 													<div class="whats-right-single mb-20">
 														<div class="whats-right-img">
-															<img src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(listNews.get(j).getNewsCover()))%> alt="">
+															<img class="img-right-single-caption"
+																src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(listNews.get(j).getNewsCover()))%>
+																alt="">
 														</div>
 														<div class="whats-right-cap">
-															<span class="colorb"><%=listCategories.get(i).getCategoryName().toUpperCase() %></span>
+															<span class="colorb"><%=listCategories.get(i).getCategoryName().toUpperCase()%></span>
 															<h4>
-																<a href=<%="NewsController?NewsId=" + listNews.get(j).getNewsId()%>><%=listNews.get(j).getNewsTitle()%></a>
+																<a
+																	href=<%="NewsController?NewsId=" + listNews.get(j).getNewsId()%>><%=listNews.get(j).getNewsTitle()%></a>
 															</h4>
 															<p>Jun 19, 2020</p>
 														</div>
@@ -117,102 +123,107 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 							</div>
 						</div>
 					</div>
-					<!-- Banner -->
-					<div class="banner-one mt-20 mb-30">
-						<img src="assets/img/gallery/body_card1.png" alt="">
+				</div>
+				<!-- Banner -->
+				<div class="banner-one mt-20 mb-30">
+					<img src="Resources/assets/img/gallery/body_card1.png" alt="">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<!-- Flow Socail -->
+				<div class="single-follow mb-45">
+					<div class="single-box">
+						<div class="follow-us d-flex align-items-center">
+							<div class="follow-social">
+								<a href="#"><img src="Resources/assets/img/news/icon-fb.png"
+									alt=""></a>
+							</div>
+							<div class="follow-count">
+								<span>8,045</span>
+								<p>Fans</p>
+							</div>
+						</div>
+						<div class="follow-us d-flex align-items-center">
+							<div class="follow-social">
+								<a href="#"><img src="Resources/assets/img/news/icon-tw.png"
+									alt=""></a>
+							</div>
+							<div class="follow-count">
+								<span>8,045</span>
+								<p>Fans</p>
+							</div>
+						</div>
+						<div class="follow-us d-flex align-items-center">
+							<div class="follow-social">
+								<a href="#"><img
+									src="Resources/assets/img/news/icon-ins.png" alt=""></a>
+							</div>
+							<div class="follow-count">
+								<span>8,045</span>
+								<p>Fans</p>
+							</div>
+						</div>
+						<div class="follow-us d-flex align-items-center">
+							<div class="follow-social">
+								<a href="#"><img src="Resources/assets/img/news/icon-yo.png"
+									alt=""></a>
+							</div>
+							<div class="follow-count">
+								<span>8,045</span>
+								<p>Fans</p>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-4">
-					<!-- Flow Socail -->
-					<div class="single-follow mb-45">
-						<div class="single-box">
-							<div class="follow-us d-flex align-items-center">
-								<div class="follow-social">
-									<a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
-								</div>
-								<div class="follow-count">
-									<span>8,045</span>
-									<p>Fans</p>
-								</div>
-							</div>
-							<div class="follow-us d-flex align-items-center">
-								<div class="follow-social">
-									<a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a>
-								</div>
-								<div class="follow-count">
-									<span>8,045</span>
-									<p>Fans</p>
-								</div>
-							</div>
-							<div class="follow-us d-flex align-items-center">
-								<div class="follow-social">
-									<a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a>
-								</div>
-								<div class="follow-count">
-									<span>8,045</span>
-									<p>Fans</p>
-								</div>
-							</div>
-							<div class="follow-us d-flex align-items-center">
-								<div class="follow-social">
-									<a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a>
-								</div>
-								<div class="follow-count">
-									<span>8,045</span>
-									<p>Fans</p>
-								</div>
-							</div>
-						</div>
+				<!-- Most Recent Area -->
+				<div class="most-recent-area">
+					<!-- Section Tittle -->
+					<div class="small-tittle mb-20">
+						<h4>Most Recent</h4>
 					</div>
-					<!-- Most Recent Area -->
-					<div class="most-recent-area">
-						<!-- Section Tittle -->
-						<div class="small-tittle mb-20">
-							<h4>Most Recent</h4>
-						</div>
-						<!-- Details -->
-						<div class="most-recent mb-40">
-							<div class="most-recent-img">
-								<img src="assets/img/gallery/most_recent.png" alt="">
-								<div class="most-recent-cap">
-									<span class="bgbeg">Vogue</span>
-									<h4>
-										<a href="latest_news.html">What to Wear: 9+ Cute Work <br>
-											Outfits to Wear This.
-										</a>
-									</h4>
-									<p>Jhon | 2 hours ago</p>
-								</div>
-							</div>
-						</div>
-						<!-- Single -->
-						<div class="most-recent-single">
-							<div class="most-recent-images">
-								<img src="assets/img/gallery/most_recent1.png" alt="">
-							</div>
-							<div class="most-recent-capt">
+					<!-- Details -->
+					<div class="most-recent mb-40">
+						<div class="most-recent-img">
+							<img src="Resources/assets/img/gallery/most_recent.png" alt="">
+							<div class="most-recent-cap">
+								<span class="bgbeg">Vogue</span>
 								<h4>
-									<a href="latest_news.html">Scarlett’s disappointment at
-										latest accolade</a>
+									<a href="latest_news.html">What to Wear: 9+ Cute Work <br>
+										Outfits to Wear This.
+									</a>
 								</h4>
 								<p>Jhon | 2 hours ago</p>
 							</div>
 						</div>
-						<!-- Single -->
-						<div class="most-recent-single">
-							<div class="most-recent-images">
-								<img src="assets/img/gallery/most_recent2.png" alt="">
-							</div>
-							<div class="most-recent-capt">
-								<h4>
-									<a href="latest_news.html">Most Beautiful Things to Do in
-										Sidney with Your BF</a>
-								</h4>
-								<p>Jhon | 3 hours ago</p>
-							</div>
+					</div>
+					<!-- Single -->
+					<div class="most-recent-single">
+						<div class="most-recent-images">
+							<img src="Resources/assets/img/gallery/most_recent1.png" alt="">
+						</div>
+						<div class="most-recent-capt">
+							<h4>
+								<a href="latest_news.html">Scarlett’s disappointment at
+									latest accolade</a>
+							</h4>
+							<p>Jhon | 2 hours ago</p>
+						</div>
+					</div>
+					<!-- Single -->
+					<div class="most-recent-single">
+						<div class="most-recent-images">
+							<img src="Resources/assets/img/gallery/most_recent2.png" alt="">
+						</div>
+						<div class="most-recent-capt">
+							<h4>
+								<a href="latest_news.html">Most Beautiful Things to Do in
+									Sidney with Your BF</a>
+							</h4>
+							<p>Jhon | 3 hours ago</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 </section>

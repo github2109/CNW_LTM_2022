@@ -17,4 +17,9 @@ public class NewsBO {
 		// TODO Auto-generated method stub
 		return newsDAO.getNewsMostRecentByCategoryId(categoryId);
 	}
+
+	public ArrayList<News> getAllNews() {
+		// TODO Auto-generated method stub
+		return newsDAO.getAllNews();
+	}
 }
