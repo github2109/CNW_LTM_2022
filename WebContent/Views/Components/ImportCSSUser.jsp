@@ -25,12 +25,4 @@
     <link rel="stylesheet" href="Resources/assets/css/slick.css">
     <link rel="stylesheet" href="Resources/assets/css/nice-select.css">
     <link rel="stylesheet" href="Resources/assets/css/style.css">
-    
-    
-    <!-- Admin page-->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-	<link rel="stylesheet" href="Resources/assets/css/admin/all.min.css">
-	<link rel="stylesheet" href="Resources/assets/css/admin/OverlayScrollbars.min.css">
-	<link rel="stylesheet" href="Resources/assets/css/admin/adminlte.min.css">
-	<link rel="stylesheet" href="Resources/assets/css/admin/DashBoard.css">
 </head>

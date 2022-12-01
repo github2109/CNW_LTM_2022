@@ -4,7 +4,7 @@
 <%@page import="model.dto.NewsDto"%>
 <!DOCTYPE html>
 <html>
-<jsp:include page="../Components/ImportCSS.jsp" />
+<jsp:include page="../Components/ImportCSSAdmin.jsp" />
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 	<div class="wrapper">
 		<!-- Navbar -->
@@ -144,7 +144,7 @@
 			</section>
 		</div>
 	</div>
-	<jsp:include page="../Components/ImportJS.jsp" />
+	<jsp:include page="../Components/ImportJSAdmin.jsp" />
 </body>
 
 </html>
