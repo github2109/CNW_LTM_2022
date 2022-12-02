@@ -82,7 +82,7 @@
 																	href=<%="NewsController?NewsId=" + listNews.get(j).getNewsId()%>><%=listNews.get(j).getNewsTitle()%></a>
 															</h4>
 															<span>by <%=listNews.get(j).getNewsWriter()%> -
-																Jun 19, 2020
+																<%=listNews.get(j).getNewsCreatedAt() %>
 															</span>
 															<p><%=listNews.get(j).getNewsOverviewContent()%></p>
 														</div>

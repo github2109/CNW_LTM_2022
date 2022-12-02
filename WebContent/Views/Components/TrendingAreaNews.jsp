@@ -51,7 +51,7 @@ for (int i = 0; i < 3; i++) {
 											data-duration="1000ms">
 											by
 											<%=listNews.get(i).getNewsWriter()%>
-											- Jun 19, 2020
+											- <%=listNews.get(i).getNewsCreatedAt() %>
 										</p>
 									</div>
 								</div>
@@ -83,7 +83,7 @@ for (int i = 0; i < 3; i++) {
 										<h2>
 											<a href=<%="NewsController?NewsId=" + news1.getNewsId()%>><%=news1.getNewsTitle()%></a>
 										</h2>
-										<p>by <%=news1.getNewsWriter() %> - Jun 19, 2020</p>
+										<p>by <%=news1.getNewsWriter() %> - <%=news1.getNewsCreatedAt() %></p>
 									</div>
 								</div>
 							</div>
@@ -98,7 +98,7 @@ for (int i = 0; i < 3; i++) {
 										<h2>
 											<a href=<%="NewsController?NewsId=" + news2.getNewsId()%>><%=news2.getNewsTitle()%></a>
 										</h2>
-										<p>by <%=news2.getNewsWriter() %> - Jun 19, 2020</p>
+										<p>by <%=news2.getNewsWriter() %> - <%=news2.getNewsCreatedAt() %></p>
 									</div>
 								</div>
 							</div>

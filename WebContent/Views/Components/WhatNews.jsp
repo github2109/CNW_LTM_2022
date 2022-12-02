@@ -60,7 +60,7 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 								<div class="tab-pane fade show <%=i == 0 ? "active" : ""%>"
 									id=<%="nav-" + listCategories.get(i).getCategoryName()%>
 									role="tabpanel"
-									aria-labelledby=<%="nav-" + listCategories.get(i).getCategoryName() + "-tab"%>>
+									aria-labelledby=<%="nav-" + listCategories.get(i).getCategoryName() + "-tab" %>>
 									<div class="row">
 
 										<!-- Left Details Caption -->
@@ -76,8 +76,7 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 														<a
 															href=<%="NewsController?NewsId=" + listNews.get(0).getNewsId()%>><%=listNews.get(0).getNewsTitle()%></a>
 													</h4>
-													<span>by <%=listNews.get(0).getNewsWriter()%> - Jun
-														19, 2020
+													<span>by <%=listNews.get(0).getNewsWriter()%> - <%= listNews.get(0).getNewsCreatedAt() %>
 													</span>
 													<p><%=listNews.get(0).getNewsOverviewContent()%></p>
 												</div>
@@ -104,7 +103,7 @@ ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute(
 																<a
 																	href=<%="NewsController?NewsId=" + listNews.get(j).getNewsId()%>><%=listNews.get(j).getNewsTitle()%></a>
 															</h4>
-															<p>Jun 19, 2020</p>
+															<p><%=listNews.get(j).getNewsCreatedAt() %></p>
 														</div>
 													</div>
 												</div>
