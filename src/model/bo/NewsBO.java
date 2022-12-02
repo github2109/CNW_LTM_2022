@@ -31,4 +31,9 @@ public class NewsBO {
 		// TODO Auto-generated method stub
 		return newsDAO.getNewsByCategoryId(categoryId);
 	}
+
+	public News getNewsLastest() {
+		// TODO Auto-generated method stub
+		return newsDAO.getNewsLastest();
+	}
 }

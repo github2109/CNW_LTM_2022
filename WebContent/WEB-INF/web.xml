@@ -70,7 +70,6 @@
     <url-pattern>/DashBoardController</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
     <display-name>NewsController</display-name>
     <servlet-name>NewsController</servlet-name>
     <servlet-class>controller.NewsController</servlet-class>
@@ -78,5 +77,73 @@
   <servlet-mapping>
     <servlet-name>NewsController</servlet-name>
     <url-pattern>/NewsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>LoginController</display-name>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>controller.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <display-name>LoginRedirectController</display-name>
+    <servlet-name>LoginRedirectController</servlet-name>
+    <servlet-class>controller.LoginRedirectController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginRedirectController</servlet-name>
+    <url-pattern>/LoginRedirectController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterRedirectController</display-name>
+    <servlet-name>RegisterRedirectController</servlet-name>
+    <servlet-class>controller.RegisterRedirectController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterRedirectController</servlet-name>
+    <url-pattern>/RegisterRedirectController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterController</display-name>
+    <servlet-name>RegisterController</servlet-name>
+    <servlet-class>controller.RegisterController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterController</servlet-name>
+    <url-pattern>/RegisterController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutController</display-name>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>controller.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/LogoutController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LastestNewsController</display-name>
+    <servlet-name>LastestNewsController</servlet-name>
+    <servlet-class>controller.LastestNewsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LastestNewsController</servlet-name>
+    <url-pattern>/LastestNewsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateCommentController</display-name>
+    <servlet-name>CreateCommentController</servlet-name>
+    <servlet-class>controller.CreateCommentController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateCommentController</servlet-name>
+    <url-pattern>/CreateCommentController</url-pattern>
   </servlet-mapping>
 </web-app>

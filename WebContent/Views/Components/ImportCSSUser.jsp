@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="Resources/assets/css/animate.min.css">
     <link rel="stylesheet" href="Resources/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="Resources/assets/css/fontawesome-all.min.css">
+    <script src="https://kit.fontawesome.com/36351ac381.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Resources/assets/css/themify-icons.css">
     <link rel="stylesheet" href="Resources/assets/css/slick.css">
     <link rel="stylesheet" href="Resources/assets/css/nice-select.css">

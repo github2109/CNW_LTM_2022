@@ -7,7 +7,7 @@ public class Reader {
 	private String ReaderName;
 	private byte[] ReaderAvatar;
 	private String ReaderEmail;
-	private String ReaderStreet;
+	
 	public String getUsername() {
 		return Username;
 	}
@@ -23,20 +23,22 @@ public class Reader {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	private String ReaderCity;
-	private String ReaderState;
-	private String ReaderZipCode;
 	
-	public Reader(int readerId, String readerName, byte[] readerAvatar, String readerEmail, String readerStreet,
-			String readerCity, String readerState, String readerZipCode) {
+	public Reader(String username, String password, String readerName, String readerEmail) {
+		Username = username;
+		Password = password;
+		ReaderName = readerName;
+		ReaderEmail = readerEmail;
+		ReaderAvatar = null;
+	}
+
+	public Reader(int readerId, String username, String password, String readerName, byte[] readerAvatar, String readerEmail) {
 		ReaderId = readerId;
+		Username = username;
+		Password = password;
 		ReaderName = readerName;
 		ReaderAvatar = readerAvatar;
 		ReaderEmail = readerEmail;
-		ReaderStreet = readerStreet;
-		ReaderCity = readerCity;
-		ReaderState = readerState;
-		ReaderZipCode = readerZipCode;
 	}
 	
 	public int getReaderId() {
@@ -62,29 +64,5 @@ public class Reader {
 	}
 	public void setReaderEmail(String readerEmail) {
 		ReaderEmail = readerEmail;
-	}
-	public String getReaderStreet() {
-		return ReaderStreet;
-	}
-	public void setReaderStreet(String readerStreet) {
-		ReaderStreet = readerStreet;
-	}
-	public String getReaderCity() {
-		return ReaderCity;
-	}
-	public void setReaderCity(String readerCity) {
-		ReaderCity = readerCity;
-	}
-	public String getReaderState() {
-		return ReaderState;
-	}
-	public void setReaderState(String readerState) {
-		ReaderState = readerState;
-	}
-	public String getReaderZipCode() {
-		return ReaderZipCode;
-	}
-	public void setReaderZipCode(String readerZipCode) {
-		ReaderZipCode = readerZipCode;
 	}
 }

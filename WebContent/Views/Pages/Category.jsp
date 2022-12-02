@@ -1,4 +1,6 @@
+<%@page import="java.util.Base64"%>
 <%@page import="model.bean.Category"%>
+<%@page import="model.bean.News"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -7,7 +9,9 @@
 <jsp:include page="../Components/ImportCSSUser.jsp" />
 <body>
 	<%@ include file="../Components/Header.jsp"%>
-	<% ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute("listCategories");%>
+	<%
+	ArrayList<Category> listCategories = (ArrayList<Category>) request.getAttribute("listCategories");
+	%>
 	<main>
 		<div class="about-area2 gray-bg pt-60 pb-60">
 			<div class="container">
@@ -51,577 +55,47 @@
 								<div class="col-12">
 									<!-- Nav Card -->
 									<div class="tab-content" id="nav-tabContent">
-										<!-- card one -->
-										<div class="tab-pane fade show active" id="nav-home"
-											role="tabpanel" aria-labelledby="nav-home-tab">
+										<%
+										for (int i = 0; i < listCategories.size(); i++) {
+											ArrayList<News> listNews = (ArrayList<News>) request
+											.getAttribute("listNewsByCategoryId=" + listCategories.get(i).getCategoryId());
+										%>
+										<div class="tab-pane fade show <%=i == 0 ? "active" : ""%>"
+											id=<%="nav-" + listCategories.get(i).getCategoryName()%>
+											role="tabpanel"
+											aria-labelledby=<%="nav-" + listCategories.get(i).getCategoryName() + "-tab"%>>
 											<div class="row">
-											
+												<%
+												for (int j = 0; j < listNews.size(); j++) {
+												%>
 												<div class="col-xl-6 col-lg-6 col-md-6">
 													<div class="whats-news-single mb-40 mb-40">
 														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details1.png"
+															<img
+																style="width: 280px; height: 168px; object-fit: cover;"
+																src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(listNews.get(j).getNewsCover()))%>
 																alt="">
 														</div>
 														<div class="whates-caption whates-caption2">
 															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
+																<a
+																	href=<%="NewsController?NewsId=" + listNews.get(j).getNewsId()%>><%=listNews.get(j).getNewsTitle()%></a>
 															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
+															<span>by <%=listNews.get(j).getNewsWriter()%> -
+																Jun 19, 2020
+															</span>
+															<p><%=listNews.get(j).getNewsOverviewContent()%></p>
 														</div>
 													</div>
 												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details2.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details3.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details4.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details5.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details6.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
+												<%
+												}
+												%>
 											</div>
 										</div>
-										<!-- Card two -->
-										<div class="tab-pane fade" id="nav-profile" role="tabpanel"
-											aria-labelledby="nav-profile-tab">
-											<div class="row">
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details4.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details6.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details5.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details4.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details5.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details1.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- Card three -->
-										<div class="tab-pane fade" id="nav-contact" role="tabpanel"
-											aria-labelledby="nav-contact-tab">
-											<div class="row">
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details3.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details5.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details1.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details4.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details3.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details6.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- card fure -->
-										<div class="tab-pane fade" id="nav-last" role="tabpanel"
-											aria-labelledby="nav-last-tab">
-											<div class="row">
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details6.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details2.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details4.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details2.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details5.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details1.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- card Five -->
-										<div class="tab-pane fade" id="nav-nav-Sport" role="tabpanel"
-											aria-labelledby="nav-Sports">
-											<div class="row">
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details1.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details2.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details3.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details4.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details5.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-												<div class="col-xl-6 col-lg-6 col-md-6">
-													<div class="whats-news-single mb-40 mb-40">
-														<div class="whates-img">
-															<img src="assets/img/gallery/whats_news_details6.png"
-																alt="">
-														</div>
-														<div class="whates-caption whates-caption2">
-															<h4>
-																<a href="#">Secretart for Economic Air plane that
-																	looks like</a>
-															</h4>
-															<span>by Alice cloe - Jun 19, 2020</span>
-															<p>Struggling to sell one multi-million dollar home
-																currently on the market won’t stop actress and singer
-																Jennifer Lopez.</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										<%
+										}
+										%>
 									</div>
 									<!-- End Nav Card -->
 								</div>
@@ -634,7 +108,7 @@
 							<div class="single-box">
 								<div class="follow-us d-flex align-items-center">
 									<div class="follow-social">
-										<a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
+										<a href="#"><img src="Resources/assets/img/news/icon-fb.png" alt=""></a>
 									</div>
 									<div class="follow-count">
 										<span>8,045</span>
@@ -643,7 +117,7 @@
 								</div>
 								<div class="follow-us d-flex align-items-center">
 									<div class="follow-social">
-										<a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a>
+										<a href="#"><img src="Resources/assets/img/news/icon-tw.png" alt=""></a>
 									</div>
 									<div class="follow-count">
 										<span>8,045</span>
@@ -652,7 +126,7 @@
 								</div>
 								<div class="follow-us d-flex align-items-center">
 									<div class="follow-social">
-										<a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a>
+										<a href="#"><img src="Resources/assets/img/news/icon-ins.png" alt=""></a>
 									</div>
 									<div class="follow-count">
 										<span>8,045</span>
@@ -661,7 +135,7 @@
 								</div>
 								<div class="follow-us d-flex align-items-center">
 									<div class="follow-social">
-										<a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a>
+										<a href="#"><img src="Resources/assets/img/news/icon-yo.png" alt=""></a>
 									</div>
 									<div class="follow-count">
 										<span>8,045</span>
@@ -672,7 +146,7 @@
 						</div>
 						<!-- New Poster -->
 						<div class="news-poster d-none d-lg-block">
-							<img src="assets/img/news/news_card.jpg" alt="">
+							<img src="Resources/assets/img/news/news_card.jpg" alt="">
 						</div>
 					</div>
 				</div>

@@ -1,12 +1,14 @@
 package model.dto;
 
-import java.util.Locale.Category;
-
+import model.bean.Comment;
 import model.bean.News;
+import model.bean.Reader;
 import model.bo.CategoryBO;
+import model.bo.ReaderBO;
 
 public class AutoMapperEntityToDto {
 	private static CategoryBO categoryBO = new CategoryBO();
+	private static ReaderBO readerBO = new ReaderBO();
 	public static NewsDto MapperNews(News news)
 	{
 		var category = categoryBO.getCategoryById(news.getCategoryId());
@@ -23,5 +25,12 @@ public class AutoMapperEntityToDto {
 								news.getViewsNumber(),
 								news.getNewsCreatedAt());
 		return newsDto;
+	}
+	
+	public static CommentDTO MapperComment(Comment comment)
+	{
+		Reader reader = readerBO.getReaderByID(comment.getReaderId());
+		CommentDTO commentDTO = new CommentDTO(comment.getCommentId(),reader,comment.getCommentContent(),comment.getCommentCreatedAt());
+		return commentDTO;
 	}
 }
