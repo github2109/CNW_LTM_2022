@@ -15,7 +15,7 @@ public class LogoutController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("user");
-		getServletContext().getRequestDispatcher("/HomeController").forward(request, response);
+		response.sendRedirect("HomeController");
 	}
 
 	/**

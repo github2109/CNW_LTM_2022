@@ -1,7 +1,9 @@
 package model.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 import model.bean.Comment;
@@ -22,6 +24,21 @@ public class CommentDAO {
 			e.printStackTrace();
 		}
 
+	}
+
+	public ArrayList<Comment> getCommentsByNewsId(int newsId) {
+		ArrayList<Comment> result = new ArrayList<Comment>();
+		try {
+			PreparedStatement stmt = DBContext.getConnect().prepareStatement("SELECT * FROM comment where NewsId=?");
+			stmt.setInt(1, newsId);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				result.add(new Comment(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getDate(5)));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return result;
 	}
 
 }

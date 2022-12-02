@@ -25,7 +25,6 @@
     <!-- contact js -->
     <script src="Resources/assets/js/contact.js"></script>
     <script src="Resources/assets/js/jquery.form.js"></script>
-    <script src="Resources/assets/js/jquery.validate.min.js"></script>
     <script src="Resources/assets/js/mail-script.js"></script>
     <script src="Resources/assets/js/jquery.ajaxchimp.min.js"></script>
     

@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 		
 		if (reader!=null) {
 			request.getSession().setAttribute("user", reader);
-			getServletContext().getRequestDispatcher("/HomeController").forward(request, response);
+			response.sendRedirect("HomeController");
 		} else {
 			getServletContext().getRequestDispatcher("/Views/Pages/Login.jsp").forward(request, response);
 		}
