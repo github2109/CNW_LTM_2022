@@ -8,6 +8,10 @@ public class Reader {
 	private byte[] ReaderAvatar;
 	private String ReaderEmail;
 	private String ReaderStreet;
+	private String ReaderCity;
+	private String ReaderState;
+	private int ReaderZipCode;
+	
 	public String getUsername() {
 		return Username;
 	}
@@ -23,13 +27,12 @@ public class Reader {
 	public void setPassword(String password) {
 		Password = password;
 	}
-	private String ReaderCity;
-	private String ReaderState;
-	private String ReaderZipCode;
 	
-	public Reader(int readerId, String readerName, byte[] readerAvatar, String readerEmail, String readerStreet,
-			String readerCity, String readerState, String readerZipCode) {
+	public Reader(int readerId, String username, String password, String readerName, byte[] readerAvatar, String readerEmail, String readerStreet,
+			String readerCity, String readerState, int readerZipCode) {
 		ReaderId = readerId;
+		Username = username;
+		Password = password;
 		ReaderName = readerName;
 		ReaderAvatar = readerAvatar;
 		ReaderEmail = readerEmail;
@@ -81,10 +84,10 @@ public class Reader {
 	public void setReaderState(String readerState) {
 		ReaderState = readerState;
 	}
-	public String getReaderZipCode() {
+	public int getReaderZipCode() {
 		return ReaderZipCode;
 	}
-	public void setReaderZipCode(String readerZipCode) {
+	public void setReaderZipCode(int readerZipCode) {
 		ReaderZipCode = readerZipCode;
 	}
 }
