@@ -69,4 +69,14 @@
     <servlet-name>DashBoardController</servlet-name>
     <url-pattern>/DashBoardController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewsController</display-name>
+    <servlet-name>NewsController</servlet-name>
+    <servlet-class>controller.NewsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsController</servlet-name>
+    <url-pattern>/NewsController</url-pattern>
+  </servlet-mapping>
 </web-app>

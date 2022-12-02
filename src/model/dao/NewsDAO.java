@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
+
 import model.bean.Category;
 import model.bean.News;
 
@@ -35,33 +37,60 @@ public class NewsDAO {
 		stmt.setInt(1, categoryId);
 		ResultSet rs = stmt.executeQuery();
 		while (rs.next()) {
-			result.add(new News(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getBytes(6),
-					rs.getBytes(7), rs.getString(8), rs.getString(9), rs.getBoolean(10), rs.getInt(11), rs.getDate(12)));
+			result.add(new News(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+					rs.getBytes(6), rs.getBytes(7), rs.getString(8), rs.getString(9), rs.getBoolean(10), rs.getInt(11),
+					rs.getDate(12)));
 		}
 		return result;
 	}
-	public ArrayList<News> getAllNews()
-	{
+
+	public ArrayList<News> getAllNews() {
 		ArrayList<News> result = new ArrayList<News>();
-		try {			
+		try {
 			PreparedStatement stmt = DBContext.getConnect().prepareStatement("SELECT * FROM news");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				result.add(new News(rs.getInt(1), 
-									rs.getInt(2), 
-									rs.getString(3), 
-									rs.getString(4), 
-									rs.getString(5), 
-									rs.getBytes(6),
-									rs.getBytes(7), 
-									rs.getString(8), 
-									rs.getString(9), 
-									rs.getBoolean(10), 
-									rs.getInt(11), 
-									rs.getDate(12)));
+				result.add(new News(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getBytes(6), rs.getBytes(7), rs.getString(8), rs.getString(9), rs.getBoolean(10),
+						rs.getInt(11), rs.getDate(12)));
 			}
 		} catch (Exception e) {
-			
+			System.out.println(e);
+		}
+		return result;
+	}
+
+	public News getNewsByNewsId(int id) {
+		ArrayList<News> result = new ArrayList<News>();
+		try {
+			PreparedStatement stmt = DBContext.getConnect().prepareStatement("SELECT * FROM news where NewsId=?");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				return new News(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getBytes(6), rs.getBytes(7), rs.getString(8), rs.getString(9), rs.getBoolean(10),
+						rs.getInt(11), rs.getDate(12));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+
+	public ArrayList<News> getNewsByCategoryId(int categoryId) {
+		ArrayList<News> result = new ArrayList<News>();
+		try {
+			PreparedStatement stmt = DBContext.getConnect()
+					.prepareStatement("select * from news where CategoryId=? order by NewsCreatedAt DESC");
+			stmt.setInt(1, categoryId);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				result.add(new News(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getBytes(6), rs.getBytes(7), rs.getString(8), rs.getString(9), rs.getBoolean(10),
+						rs.getInt(11), rs.getDate(12)));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return result;
 	}

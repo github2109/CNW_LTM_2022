@@ -6,25 +6,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.bean.About;
-import model.bean.Member;
-import model.bo.AboutBO;
-import model.bo.MemberBO;
+import model.bo.NewsBO;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
-public class AboutController extends HttpServlet {
+
+public class NewsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AboutBO aboutBO = new AboutBO();
-		About about = aboutBO.getAbout();
-		request.setAttribute("about", about);
-		MemberBO memberBO = new MemberBO();
-		ArrayList<Member> listMembers = memberBO.getAllMember();
-		request.setAttribute("listMembers", listMembers);
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Views/Pages/About.jsp");
+		int NewsId = Integer.parseInt(request.getParameter("NewsId"));
+		NewsBO newsBO = new NewsBO();
+		request.setAttribute("news", newsBO.getNewsByNewsId(NewsId));
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Views/Pages/News.jsp");
 		rd.forward(request, response);
 	}
 

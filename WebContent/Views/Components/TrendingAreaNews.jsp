@@ -42,8 +42,10 @@ for (int i = 0; i < 3; i++) {
 										<span class="bgr" data-animation="fadeInUp" data-delay=".1s"
 											data-duration="1000ms"><%=listCategoriesRandom.get(0).getCategoryName()%></span>
 										<h2>
-											<a href="latest_news.html" data-animation="fadeInUp"
-												data-delay=".4s" data-duration="1000ms"><%=listNews.get(i).getNewsTitle()%></a>
+											<a
+												href=<%="NewsController?NewsId=" + listNews.get(i).getNewsId()%>
+												data-animation="fadeInUp" data-delay=".4s"
+												data-duration="1000ms"><%=listNews.get(i).getNewsTitle()%></a>
 										</h2>
 										<p data-animation="fadeInUp" data-delay=".6s"
 											data-duration="1000ms">
@@ -60,21 +62,28 @@ for (int i = 0; i < 3; i++) {
 						%>
 					</div>
 				</div>
+				<%
+				listNews = (ArrayList<News>) request
+						.getAttribute("listNewsMostRecentByCategoryId=" + listCategoriesRandom.get(1).getCategoryId());
+				News news1 = listNews.get(rand.nextInt(listNews.size()));
+				listNews = (ArrayList<News>) request
+						.getAttribute("listNewsMostRecentByCategoryId=" + listCategoriesRandom.get(2).getCategoryId());
+				News news2 = listNews.get(rand.nextInt(listNews.size()));
+				%>
 				<!-- Right content -->
 				<div class="col-lg-4">
 					<div class="row">
 						<div class="col-lg-12 col-md-6 col-sm-6">
 							<div class="trending-top mb-30">
 								<div class="trend-top-img">
-									<img src="Resources/assets/img/trending/trending_top3.jpg"
+									<img class = "img-single-slider-trending-area-right-top" src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(news1.getNewsCover()))%>
 										alt="">
 									<div class="trend-top-cap trend-top-cap2">
-										<span class="bgb">FASHION</span>
+										<span class="bgb"><%=listCategoriesRandom.get(1).getCategoryName()%></span>
 										<h2>
-											<a href="latest_news.html">Secretart for Economic Air
-												plane that looks like</a>
+											<a href=<%="NewsController?NewsId=" + news1.getNewsId()%>><%=news1.getNewsTitle()%></a>
 										</h2>
-										<p>by Alice cloe - Jun 19, 2020</p>
+										<p>by <%=news1.getNewsWriter() %> - Jun 19, 2020</p>
 									</div>
 								</div>
 							</div>
@@ -82,15 +91,14 @@ for (int i = 0; i < 3; i++) {
 						<div class="col-lg-12 col-md-6 col-sm-6">
 							<div class="trending-top mb-30">
 								<div class="trend-top-img">
-									<img src="Resources/assets/img/trending/trending_top4.jpg"
+									<img class = "img-single-slider-trending-area-right-bot" src=<%="data:image/png;base64," + new String(Base64.getEncoder().encode(news2.getNewsCover()))%>
 										alt="">
 									<div class="trend-top-cap trend-top-cap2">
-										<span class="bgg">TECH </span>
+										<span class="bgg"><%=listCategoriesRandom.get(2).getCategoryName()%> </span>
 										<h2>
-											<a href="latest_news.html">Secretart for Economic Air
-												plane that looks like</a>
+											<a href=<%="NewsController?NewsId=" + news2.getNewsId()%>><%=news2.getNewsTitle()%></a>
 										</h2>
-										<p>by Alice cloe - Jun 19, 2020</p>
+										<p>by <%=news2.getNewsWriter() %> - Jun 19, 2020</p>
 									</div>
 								</div>
 							</div>

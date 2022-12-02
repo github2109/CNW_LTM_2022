@@ -22,4 +22,13 @@ public class NewsBO {
 		// TODO Auto-generated method stub
 		return newsDAO.getAllNews();
 	}
+	
+	public News getNewsByNewsId(int id) {
+		return newsDAO.getNewsByNewsId(id);
+	}
+
+	public ArrayList<News> getNewsByCategoryId(int categoryId) {
+		// TODO Auto-generated method stub
+		return newsDAO.getNewsByCategoryId(categoryId);
+	}
 }
