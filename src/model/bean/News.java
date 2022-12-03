@@ -31,14 +31,22 @@ public class News {
 		NewsCreatedAt = newsCreatedAt;
 		this.NewsOverviewContent = NewsOverviewContent;
 	}
-	public News(int categoryId, String newsSlug, String newsTitle, String newsWriter, byte[] newsThumb,
-			byte[] newsCover, String NewsOverviewContent,String newsContent, boolean isActive) {
+	public News(int categoryId, 
+				String newsSlug, 
+				String newsTitle, 
+				String newsWriter, 
+				byte[] newsThumb,
+				byte[] newsCover, 
+				String newsOverviewContent,
+				String newsContent, 
+				boolean isActive) {
 		CategoryId = categoryId;
 		NewsSlug = newsSlug;
 		NewsTitle = newsTitle;
 		NewsWriter = newsWriter;
 		NewsThumb = newsThumb;
 		NewsCover = newsCover;
+		NewsOverviewContent = newsOverviewContent;
 		NewsContent = newsContent;
 		this.isActive = isActive;
 	}
@@ -135,6 +143,4 @@ public class News {
 	public void setNewsOverviewContent(String newsOverviewContent) {
 		NewsOverviewContent = newsOverviewContent;
 	}
-	
-	
 }

@@ -1,6 +1,9 @@
 package model.dto;
 
+
 import model.bean.Comment;
+import model.bean.Category;
+
 import model.bean.News;
 import model.bean.Reader;
 import model.bo.CategoryBO;
@@ -32,5 +35,23 @@ public class AutoMapperEntityToDto {
 		Reader reader = readerBO.getReaderByID(comment.getReaderId());
 		CommentDTO commentDTO = new CommentDTO(comment.getCommentId(),reader,comment.getCommentContent(),comment.getCommentCreatedAt());
 		return commentDTO;
+	}
+	public static News MapperCreateNews(CreateNewsDto createNewsDto)
+	{
+		return new News (createNewsDto.getCategoryId(),
+							createNewsDto.getNewsSlug(),
+							createNewsDto.getNewsTitle(),
+							createNewsDto.getNewsWriter(),
+							createNewsDto.getNewsThumb(),
+							createNewsDto.getNewsCover(),
+							createNewsDto.getNewsOverviewContent(),
+							createNewsDto.getNewsContent(),
+							createNewsDto.isActive());
+	}
+	
+	public static CategoryDto MapperCategories(Category category)
+	{
+		return new CategoryDto(category.getCategoryId(), category.getCategoryName());
+
 	}
 }

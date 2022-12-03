@@ -12,3 +12,8 @@
 	<script src="Resources/assets/js/admin/demo.js"></script>
 	<script src="Resources/assets/js/admin/dashboard2.js"></script>
 	<script src="Resources/assets/js/admin/DashBoard.js"></script>
+	<script src="Resources/assets/js/admin/CreateUpdateNews/createNews.js"></script>
+
+	<script src="Resources/assets/summernote/summernote-bs4.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	

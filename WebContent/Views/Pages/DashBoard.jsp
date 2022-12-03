@@ -105,6 +105,8 @@
                       <th class ="max-width">Is Active</th>
                       <th class ="max-width">Views Number</th>
                       <th class ="max-width">News Created At</th>
+                      <th class ="max-width">Update</th>
+                      <th class ="max-width">Delete</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -130,6 +132,8 @@
                       <td class ="max-width"><%=newDtoList.get(i).isActive()%></td>
                       <td class ="max-width"><%=newDtoList.get(i).getViewsNumber()%></td>
                       <td class ="max-width"><%=newDtoList.get(i).getNewsCreatedAt()%></td>
+                      <td class ="max-width"><a href=<%="updateNewsController?NewsId="+newDtoList.get(i).getNewsId()%>>Update</a></td>
+                      <td class ="max-width"><a href=<%="DeleteNewsController?NewsId="+newDtoList.get(i).getNewsId()%>>Delete</a></td>
                     </tr>
                     <%} %>
                   </tbody>

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+#file-chosen{
+  margin-left: 0.3rem;
+  font-family: sans-serif;
+}
+
+#imageThumb, #imageCover{
+	width: 690px;
+    height: 414px;
+}
+
+.hidden{
+	display:none;
+}

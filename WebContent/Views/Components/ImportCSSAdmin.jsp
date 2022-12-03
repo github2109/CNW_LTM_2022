@@ -8,4 +8,6 @@
 	<link rel="stylesheet" href="Resources/assets/css/admin/OverlayScrollbars.min.css">
 	<link rel="stylesheet" href="Resources/assets/css/admin/adminlte.min.css">
 	<link rel="stylesheet" href="Resources/assets/css/admin/DashBoard.css">
+	<link rel="stylesheet" href="Resources/assets/summernote/summernote-bs4.min.css">
+	<link rel="stylesheet" href="Resources/assets/css/admin/CreateUpdateNews/createNews.css">
 </head>
