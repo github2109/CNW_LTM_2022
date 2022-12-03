@@ -109,4 +109,38 @@ public class NewsDAO {
 		}
 		return null;
 	}
+
+	public void updateNews(News news, int newsId) {
+		try {
+			PreparedStatement stmt = DBContext.getConnect().prepareStatement("Update News Set CategoryId=?, NewsSlug=?,NewsTitle=?,NewsWriter=?,NewsThumb=?,NewsCover=?,NewsOverviewContent=?,NewsContent=?,isActive=? where NewsId=?");
+			stmt.setInt(1, news.getCategoryId());
+			stmt.setString(2, news.getNewsSlug());
+			stmt.setString(3, news.getNewsTitle());
+			stmt.setString(4, news.getNewsWriter());
+			stmt.setBytes(5, news.getNewsThumb());
+			stmt.setBytes(6, news.getNewsCover());
+			stmt.setString(7, news.getNewsOverviewContent());
+			stmt.setString(8, news.getNewsContent());
+			stmt.setBoolean(9, news.isActive());
+			stmt.setInt(10, newsId);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void deleteNews(int newsId) {
+		try {
+			PreparedStatement stmt = DBContext.getConnect().prepareStatement("delete from News where NewsId=?");
+			stmt.setInt(1, newsId);
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

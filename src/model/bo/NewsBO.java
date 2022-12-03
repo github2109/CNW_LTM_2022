@@ -10,6 +10,7 @@ import model.dao.NewsDAO;
 public class NewsBO {
 	NewsDAO newsDAO = new NewsDAO();
 	public void createNews(News news) throws SQLException {
+		System.out.print("BO error " + news.getNewsOverviewContent());
 		newsDAO.createNews(news);
 	}
 
@@ -35,5 +36,15 @@ public class NewsBO {
 	public News getNewsLastest() {
 		// TODO Auto-generated method stub
 		return newsDAO.getNewsLastest();
+	}
+
+	public void updateNews(News news, int newsId) {
+		
+		newsDAO.updateNews(news,newsId);
+	}
+
+	public void deleteNews(int newsId) {
+		newsDAO.deleteNews(newsId);
+		
 	}
 }

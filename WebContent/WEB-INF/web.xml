@@ -148,12 +148,42 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>LoginAdminController</display-name>
-    <servlet-name>LoginAdminController</servlet-name>
-    <servlet-class>controller.LoginAdminController</servlet-class>
+    <display-name>createNewsController</display-name>
+    <servlet-name>createNewsController</servlet-name>
+    <servlet-class>controller.createNewsController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>LoginAdminController</servlet-name>
-    <url-pattern>/admin</url-pattern>
+    <servlet-name>createNewsController</servlet-name>
+    <url-pattern>/createNewsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>updateNewsController</display-name>
+    <servlet-name>updateNewsController</servlet-name>
+    <servlet-class>controller.updateNewsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateNewsController</servlet-name>
+    <url-pattern>/updateNewsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DetailNewsController</display-name>
+    <servlet-name>DetailNewsController</servlet-name>
+    <servlet-class>controller.DetailNewsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailNewsController</servlet-name>
+    <url-pattern>/DetailNewsController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteNewsController</display-name>
+    <servlet-name>DeleteNewsController</servlet-name>
+    <servlet-class>controller.DeleteNewsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteNewsController</servlet-name>
+    <url-pattern>/DeleteNewsController</url-pattern>
   </servlet-mapping>
 </web-app>
