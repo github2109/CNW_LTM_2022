@@ -146,4 +146,14 @@
     <servlet-name>CreateCommentController</servlet-name>
     <url-pattern>/CreateCommentController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginAdminController</display-name>
+    <servlet-name>LoginAdminController</servlet-name>
+    <servlet-class>controller.LoginAdminController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginAdminController</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
 </web-app>
